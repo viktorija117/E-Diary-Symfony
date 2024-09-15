@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    {% if app.user is not null and app.user.roles is iterable and 'ROLE_DIREKTOR' in app.user.roles %}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>Dobrodosli, {{ app.user.korisnickoIme }} </h1><br>
+                    <ul class="direktorovMeni col-sm-12">
+                        <li><a href="/klikPregledajProfesore">Spisak profesora</a></li> <br>
+                        <li><a href="/klikPregledajStudenteDirektor">Spisak studenata</a></li>
+                    </ul>
+                    {% if error is defined %}
+                        <p>{{ error }}</p>
+                    {% endif %}
+                </div>
+                <div class="col-sm-6">
+                    <h3>Podaci o direktoru:</h3>
+                    <ul>
+                        <li>Ime: {{ app.user.ime }}</li>
+                        <li>Prezime: {{ app.user.prezime }}</li>
+                        <li>Korisničko ime: {{ app.user.korisnickoIme }}</li>
+                    </ul>
+                    <div class="buttons">
+                        <button class="btn"><a href="/odjavljivanje" style="text-decoration: none; color: black;">Odjavi se</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <h1>NEMATE PRISTUP</h1><br>
+        <div class="buttons">
+            <button class="btn"><a href="/logovanje" style="text-decoration: none; color: black;">Vrati se na pocetnu</a></button>
+        </div>
+    {% endif %}
+{% endblock %}
+
+
+
+

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Dobrodošli na eDnevnik privatnog jednogodišnjeg kursa programiranja!</h3><br>
+				<p>
+				Naš jednogodišnji kurs programiranja pruža vam sveobuhvatno znanje i veštine potrebne za uspeh u svetu programiranja. <br>
+				Naša stručna nastavnička ekipa je posvećena vašem uspehu i pružiće vam podršku tokom celog kursa. <br>
+				Hvala što ste odabrali naš kurs, radujemo se što ćemo vam pomoći da ostvarite svoje ciljeve u programiranju!
+				</p>
+            </div>
+            <div class="col-sm-6">
+                <h1>Uloguj se!</h1> <br>
+                <form action="/pokusajLogovanja" method="post">
+                    <div class="form-group">
+                        <label for="korisnicko_ime">Korisničko ime:</label>
+                        <input type="text" id="korisnicko_ime" name="korisnicko_ime">
+                        {% if errors.email is defined %}<label class="error">{{ errors.email }}</label>{% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label for="lozinka">Lozinka:</label>
+                        <input type="password" id="lozinka" name="lozinka">
+                        {% if errors.password is defined %}<label class="error">{{ errors.password }}</label>{% endif %}
+                    </div>
+                    <button type="submit" class="btn">Uloguj se</button>
+                </form>
+                {% if error is defined %}
+                    <p>{{ error }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

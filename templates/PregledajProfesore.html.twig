@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    {% if app.user is not null and app.user.roles is iterable and 'ROLE_DIREKTOR' in app.user.roles %}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12" style="text-align: center; color: white;">
+                    <div class="buttons">
+                        <button class="btn"><a href="/odjavljivanje" style="text-decoration: none; color: black;">Odjavi se</a></button>
+                        <button class="btn"><a href="/preuzmiProfesore" style="text-decoration: none; color: black;">Preuzmi pdf profesora</a></button>
+
+                    </div>
+                    <h1>Unesite podatke da biste zaposlili novog profesora</h1><br>
+                    {% if error is defined %}
+                        <p>{{ error }}</p>
+                    {% endif %}
+
+                    <form action="{{ path('dodaj_profesora') }}" method="POST" class="formaZaposli">
+                        <label for="ime">Ime:</label>
+                        <input type="text" id="ime" name="ime" required><br>
+
+                        <label for="prezime">Prezime:</label>
+                        <input type="text" id="prezime" name="prezime" required><br>
+
+                        <label for="korisnicko_ime">Korisničko ime:</label>
+                        <input type="text" id="korisnicko_ime" name="korisnicko_ime" required><br>
+
+                        <label for="lozinka">Lozinka:</label>
+                        <input type="password" id="lozinka" name="lozinka" required><br>
+
+                        <label for="predmetId">ID predmeta (opciono):</label>
+                        <input type="number" id="predmet_id" name="predmet_id"><br>
+
+                        <button type="submit" class="btn">Zaposli</button>
+                    </form>
+                </div> 
+            </div>
+            <div class="tabelaZaposleni">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ime</th>
+                            <th>Prezime</th>
+                            <th>Korisničko ime</th>
+                            <th>Predmet</th>
+                            <th>Otpusti</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for profesor in profesori %}
+                            <tr>
+                                <td>{{ profesor.ime }}</td>
+                                <td>{{ profesor.prezime }}</td>
+                                <td>{{ profesor.korisnickoIme }}</td>
+                                <td>{{ profesor.predmetId.nazivPredmeta }}</td>
+                                <td><a href="{{ path('otpusti_profesora', {'id': profesor.id}) }}">Otpusti</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% else %}
+        <h1>NEMATE PRISTUP</h1><br>
+        <div class="buttons">
+            <button class="btn"><a href="/logovanje" style="text-decoration: none; color: black;">Vrati se na pocetnu</a></button>
+        </div>
+    {% endif %}
+{% endblock %}
+

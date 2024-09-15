@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    background-image: url(img/pozadina.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body {
+    justify-content: center;
+    align-items: center;
+    background-color: color-mix(in srgb-linear, color percentage, color percentage);
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.container {
+    background-color: rgba(44, 99, 116, 0.733);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 10px; /* Prilagodite ovu vrednost prema potrebi */
+    margin-bottom: 10px; /* Prilagodite ovu vrednost prema potrebi */
+    position: relative;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60vh;
+}
+
+.col-sm-6 {
+    color: white;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    font-size: large;
+}
+
+.direktorovMeni {
+    text-align: center;
+}
+
+.direktorovMeni li {
+    display: inline-block;
+    text-decoration: none;
+    list-style: none;
+    border-bottom: none;
+    color: white;
+}
+
+.direktorovMeni li a {
+    color: white;
+    text-decoration: none;
+}
+
+.tabelaZaposleni {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.tabelaZaposleni table {
+    margin: 0 auto;
+    width: 100%;
+    background-color: white;
+}
+
+.tabelaZaposleni th, .tabelaZaposleni td {
+    padding: 8px;
+}
+
+.tabelaZaposleni th {
+    background-color: #ddd;
+}
+
+.tabelaZaposleni tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tabelaZaposleni tbody tr:hover {
+    background-color: #ddd;
+}
+
+.formaZaposli{
+    text-align: center;
+}
+
+  
+  
+  
+  
+  

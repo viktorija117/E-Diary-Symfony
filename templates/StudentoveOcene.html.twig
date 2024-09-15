@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {% if app.user is not null and app.user.roles is iterable and 'ROLE_STUDENT' in app.user.roles %}
+        <div class="container">
+                <div class="col-sm-12" style="text-align: center; color: white;">
+                    <div class="buttons">
+                        <button class="btn"><a href="/odjavljivanje" style="text-decoration: none; color: black;">Odjavi se</a></button>
+                    </div>
+                    <h1>Tvoje ocene su:</h1><br>
+                </div> 
+                <div class="tabelaZaposleni">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Predmet</th>
+                                <th>Ocena</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if ocene is not null %}
+                            {% for ocena in ocene %}
+                                <tr>
+                                    <td>{{ ocena.getPredmet().getNazivPredmeta() }}</td>
+                                    <td>{{ ocena.getOcena() }}</td>
+                                </tr>
+                            {% endfor %}
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    {% else %}
+        <h1>NEMATE PRISTUP</h1><br>
+        <div class="buttons">
+            <button class="btn"><a href="/logovanje" style="text-decoration: none; color: black;">Vrati se na pocetnu</a></button>
+        </div>
+    {% endif %}
+{% endblock %}

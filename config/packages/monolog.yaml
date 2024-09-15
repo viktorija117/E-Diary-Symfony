@@ -1,0 +1,12 @@
+monolog:
+    handlers:
+        main:
+            type: stream
+            path: "%kernel.logs_dir%/LogFile.log"
+            level: info
+
+    channels:
+        - deprecation
+
+    use_microseconds: false
+    

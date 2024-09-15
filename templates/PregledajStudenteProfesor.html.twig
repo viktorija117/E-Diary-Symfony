@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    {% if app.user is not null and app.user.roles is iterable and 'ROLE_PROFESOR' in app.user.roles %}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12" style="text-align: center; color: white;">
+                    <div class="buttons">
+                        <button class="btn"><a href="/odjavljivanje" style="text-decoration: none; color: black;">Odjavi se</a></button>
+                    </div>
+                    <h1>Unesi ocenu studentu</h1><br>
+                    {% if error is defined %}
+                        <p>{{ error }}</p>
+                    {% endif %}
+
+                    <form action="{{ path('upisi_ocenu') }}" method="POST" class="formaUnesiOcenu">
+                        <label for="korisnicko_ime">Korisničko ime studenta:</label>
+                        <input type="text" id="korisnicko_ime" name="korisnicko_ime" required><br>
+
+                        <label for="ocena">Ocena:</label>
+                        <input type="number" id="ocena" name="ocena" min="5" max="10" required><br>
+
+                        <button type="submit" class="btn">Unesi ocenu</button>
+                    </form>
+                </div> 
+            </div>
+            <div class="tabelaZaposleni">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ime</th>
+                            <th>Prezime</th>
+                            <th>Korisničko ime</th>
+                            <th>Ocena</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for key,student in studenti %}
+                            <tr>
+                                <td>{{ student.ime }}</td>
+                                <td>{{ student.prezime }}</td>
+                                <td>{{ student.korisnickoIme }}</td>
+                                <td>{{ ocene[key].ocena }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% else %}
+        <h1>NEMATE PRISTUP</h1><br>
+        <div class="buttons">
+            <button class="btn"><a href="/logovanje" style="text-decoration: none; color: black;">Vrati se na pocetnu</a></button>
+        </div>
+    {% endif %}
+{% endblock %}
