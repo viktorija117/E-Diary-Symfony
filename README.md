@@ -1,17 +1,38 @@
-bazu podataka pravimo pomocu http://127.0.0.1:8000/baza ( http://127.0.0.1:8000 je kod mene)
+# Sistem za upravljanje studentima i profesorima
 
-Pri generisanju baze unose se predmeti i direktor. Parametri za direktora su:
+Ovaj projekat omogućava upravljanje studentima, profesorima i njihovim ocenama. Direktor ima pristup za pregled, ažuriranje i preuzimanje podataka o profesorima i studentima, dok profesori i studenti imaju ograničen pristup zavisno od njihovih privilegija.
 
-Korisnicko ime: direktorPera
-Lozinka: direktorPera
+## Stranice i pristup
 
-Idemo na stranicu http://127.0.0.1:8000/logovanje i unosimo parametre da bismo nastavili dalje.
+### 1. **Generisanje baze podataka**
+   - Posetite [http://127.0.0.1:8000/baza](http://127.0.0.1:8000/baza) da biste generisali osnovnu bazu podataka sa studentima, profesorima i predmetima.
+   
+### 2. **Logovanje kao direktor**
+   - Idite na [http://127.0.0.1:8000/logovanje](http://127.0.0.1:8000/logovanje).
+   - Korisničko ime: `direktorPera`
+   - Lozinka: `direktorPera`
+   - Kao direktor, možete:
+     - Pregledati, ažurirati i preuzeti podatke o profesorima i studentima.
+     - Upisati ili ispisati studenta.
+     - Zapostaviti ili otpustiti profesora (ako postoji zamena).
 
-Direktor moze pregledati, azurirati i preuzeti podatke o profesorima i studentima.
-Moze upisati ili ispisati studenta  i moze zapostili i otpustiti (ukoliko ima zamenu) profesora. Predmeti imaju id od 1 do 10 i pretpostavlja se da znamo koji id je vezan za koji predmet.
+### 3. **Rad sa predmetima**
+   - Predmeti imaju ID od 1 do 10. Poznato je koji predmet ima koji ID.
+   - Direktor ima mogućnost upravljanja predmetima i njihovim povezivanjem sa studentima i profesorima.
 
-Kada dodamo studenta i profesora mozemo se odjaviti i prijaviti ponovo kao student ili profesor.
+### 4. **Logovanje kao profesor**
+   - Nakon što se prijavite kao direktor, možete se odjaviti i ponovo prijaviti kao profesor.
+   - Kao profesor, možete:
+     - Pregledati studente koji su upisani na predmete koje predajete.
+     - Pregledati ocene studenata.
+     - Menjati ocene studentima.
 
-Profesor moze pregledati studente i njihove ocene iz predmeta koji profesor predaje, a moze i menjati ocene studentima.
+### 5. **Logovanje kao student**
+   - Nakon što se prijavite kao direktor, možete se odjaviti i ponovo prijaviti kao student.
+   - Kao student, možete:
+     - Pregledati sve svoje ocene iz predmeta.
 
-Student moze videti koje ocene ima iz svih predmeta.
+
+## Autor
+
+- Viktorija
