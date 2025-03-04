@@ -31,8 +31,3 @@ Ovaj projekat omogućava upravljanje studentima, profesorima i njihovim ocenama.
    - Nakon što se prijavite kao direktor, možete se odjaviti i ponovo prijaviti kao student.
    - Kao student, možete:
      - Pregledati sve svoje ocene iz predmeta.
-
-
-## Autor
-
-- Viktorija
