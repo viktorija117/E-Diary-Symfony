@@ -14,7 +14,7 @@ Ovaj projekat omogućava upravljanje studentima, profesorima i njihovim ocenama.
    - Kao direktor, možete:
      - Pregledati, ažurirati i preuzeti podatke o profesorima i studentima.
      - Upisati ili ispisati studenta.
-     - Zapostaviti ili otpustiti profesora (ako postoji zamena).
+     - Otpustiti profesora (ako postoji zamena).
 
 ### 3. **Rad sa predmetima**
    - Predmeti imaju ID od 1 do 10. Poznato je koji predmet ima koji ID.
